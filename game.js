@@ -130,10 +130,11 @@
 
       this.playDiv.style.backgroundImage = 'none';
       this.playDiv.style.backgroundColor = "white";
+      this.playDiv.style.backgroundImage = 'url(NicCage.jpg)';
       this.playDiv.innerHTML = "GAME OVER";
       var newP = document.createElement('p');
       newP.id = "endData";
-      newP.innerHTML = "\n \t  Your Final Score Is: " + this.score; 
+      newP.innerHTML = "\n \t  Your Final Score Is: " + this.score;
       var elem = document.getElementById('finalData');
 
       var newP2 = document.createElement('p');
@@ -153,12 +154,16 @@
       newButton.id="restartButton";
       newButton.innerHTML="Start New Game!";
       newButton.addEventListener('click', kick);
+      var newP3 = document.createElement('p');
+      newP3.id = "pun";
+      newP3.innerHTML = "Enjoy some Cajun!";
 
 
       // add the newly created element and its content into the DOM
       var currentDiv = document.getElementById("main");
       // document.body.insertBefore(newButton, currentDiv);
       this.playDiv.insertBefore(newButton, elem);
+      this.playDiv.insertBefore(newP3, elem);
 
   };
   var kick = function(){
