@@ -1,0 +1,71 @@
+
+.body {
+  color: grey;
+
+}
+.title {
+  font-family: sans-serif;
+  font-size: 30px;
+  /*background-color: blue;*/
+  color: #007acc;
+
+}
+.instructions {
+  font-family: sans-serif;
+  background-color:inherit;
+  color:#007acc;
+}
+#startButton {
+  background-color: blue;
+  right: 10%;
+  top: 60px;
+  position: absolute;
+
+}
+#restartButton {
+  background-color: blue;
+  /*right: 10%;*/
+  /*top: 60px;*/
+  /*position: absolute;*/
+}
+.playArea {
+  position: relative;
+  height: 600px;
+  width: 90%;
+  text-align: center;
+  font-size: 48px;
+  color: blue;
+
+  background-image: url('NationalTreasureFilmSet.jpg');
+  border: 2px solid black;
+  margin: auto;
+}
+
+.playArea:hover{
+  cursor:pointer;
+}
+.playArea:active {
+  cursor:grabbing;
+}
+.scoreArea {
+  position: absolute;
+  right: 10%;
+  top: 10px;
+  height: 30px;
+  width: 100px;
+}
+.scoreLabel {
+  display: inline-block;
+  margin-top: 10px;
+}
+#scoreDiv {
+  float: right;
+  margin-top: 10px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  text-align: center;
+}
+#cage {
+  z-index: 10;
+}
