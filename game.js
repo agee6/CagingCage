@@ -1,7 +1,7 @@
 (function () {
 
   var Game = function () {
-    this.currentSize = 100;
+    this.currentSize = 200;
     this.currentTime = 2000;
     this.score = 0;
     this.gameOver = false;
@@ -11,6 +11,7 @@
     this.cageCount = 0;
     this.scoreDiv = document.getElementById("scoreDiv");
     this.playDiv = document.getElementById('main');
+    this.scoreList = document.getElementById('cage-list');
   };
 
   Game.prototype.startGame = function(){
@@ -109,7 +110,20 @@
 
   };
   Game.prototype.updateScore = function(){
-    this.scoreDiv.innerHTML = this.score;
+    // this.scoreDiv.innerHTML = this.score;
+
+    while(this.scoreList.firstChild){
+      this.scoreList.removeChild(this.scoreList.firstChild);
+
+    }
+
+    for (var i = 0; i < this.cageCount ; i++) {
+      var li = document.createElement("div");
+      li.classList.add('cage-list-item');
+      this.scoreList.appendChild(li);
+
+    }
+
 
   };
   Game.prototype.removeWords = function(){
