@@ -177,3 +177,8 @@
    float:left;
    margin: 2px;
  }
+ .last-words{
+   font-style:italic;
+   color: black;
+   background-color: rgba(100, 100, 150, 0.5);
+ }

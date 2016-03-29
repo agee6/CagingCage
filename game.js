@@ -1,7 +1,7 @@
 (function () {
 
   var Game = function () {
-    this.currentSize = 200;
+    this.currentSize = 100;
     this.currentTime = 2000;
     this.score = 0;
     this.gameOver = false;
@@ -76,7 +76,7 @@
     var otherDiv = document.getElementById('ForCage');
     currentDiv.insertBefore(this.cageDiv, otherDiv);
     this.rCageIndex = setInterval(this.removeCage.bind(this),
-                        this.currentTime/2);
+                        this.currentTime/1.5);
   };
 
   Game.prototype.removeCage = function(){
@@ -148,11 +148,13 @@
       this.playDiv.innerHTML = "GAME OVER";
       var newP = document.createElement('p');
       newP.id = "endData";
+      newP.className = "last-words"
       newP.innerHTML = "\n \t  Your Final Score Is: " + this.score;
       var elem = document.getElementById('finalData');
 
       var newP2 = document.createElement('p');
       newP2.id = "endData";
+      newP2.className="last-words"
       newP2.innerHTML = "\t Your Cage count is: " + this.cageCount ;
       // var elem = document.getElementById('finalData');
 
@@ -170,6 +172,7 @@
       newButton.addEventListener('click', kick);
       var newP3 = document.createElement('p');
       newP3.id = "pun";
+      newP3.className='last-words'
       newP3.innerHTML = "Enjoy some Cajun!";
 
 
