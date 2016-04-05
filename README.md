@@ -14,7 +14,7 @@ To begin play hit the large blue "start game" button in the top right.
 
 The purpose of the game is to Cage Nicolas Cage. This is best done with a fast hand on the mouse, and, if desired, while eating Cajun food.
 
-Nicolas Cage's face will appear periodically at a rondom location in the National Treasure set background. as seen in this screenshot: 
+Nicolas Cage's face will appear periodically at a random location in the National Treasure set background. as seen in this screenshot: 
 
 ![game-play]
 
