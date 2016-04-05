@@ -117,7 +117,7 @@
 }
 
 .playArea {
-  position: relative;
+  position: absolute;
   height: 600px;
   width: 90%;
   text-align: center;
@@ -126,7 +126,7 @@
 
   background-image: url('NationalTreasureFilmSet.jpg');
   border: 2px solid black;
-  margin: auto;
+  margin: 10px 5%;
   background-size: cover;
 }
 
@@ -143,6 +143,17 @@
   top: 10px;
   height: 30px;
   width: 250px;
+}
+.missArea{
+  position: absolute;
+  left: 8%;
+  top: 10px;
+  height: 30px;
+  width: 250px;
+}
+.missLabel {
+  display: inline-block;
+  margin-top: 10px;
 }
 .scoreLabel {
   display: inline-block;
@@ -177,6 +188,16 @@
    float:left;
    margin: 2px;
  }
+ .leo-list-item:before{
+   content:'';
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    background-image: url('Dicap.png');
+    background-size: contain;
+    float:left;
+    margin: 2px;
+  }
  .last-words{
    font-style:italic;
    color: black;

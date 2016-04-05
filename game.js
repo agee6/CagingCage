@@ -1,22 +1,29 @@
 (function () {
 
-  var Game = function () {
+  var Game = function (num) {
     this.currentSize = 100;
     this.currentTime = 2000;
     this.score = 0;
     this.gameOver = false;
-    this.clickCounter = 0;
-    this.badClickCounter = 0;
+    this.clickCounter = 0 ;
+    if(num === undefined){
+      this.badClickCounter = 0;
+
+    }else {
+      this.badClickCounter = num;
+    }
     this.timeCounter = 0;
     this.cageCount = 0;
     this.scoreDiv = document.getElementById("scoreDiv");
+    this.missDiv = document.getElementById("leo-list");
     this.playDiv = document.getElementById('main');
     this.scoreList = document.getElementById('cage-list');
   };
 
   Game.prototype.startGame = function(){
-    document.getElementById('main').addEventListener("click", this.clicked.bind(this));
+    this.playDivListener = this.clicked.bind(this);
     this.resetPlayDiv();
+    this.playDiv.addEventListener("click", this.playDivListener);
     this.showWords();
 
 
@@ -96,6 +103,7 @@
       this.currentSize = this.currentSize - 5;
       this.score -=5;
       this.updateScore();
+      this.updateLeos();
   };
   Game.prototype.cageClick = function(event){
 
@@ -110,22 +118,29 @@
 
   };
   Game.prototype.updateScore = function(){
-    // this.scoreDiv.innerHTML = this.score;
 
     while(this.scoreList.firstChild){
       this.scoreList.removeChild(this.scoreList.firstChild);
-
     }
 
     for (var i = 0; i < this.cageCount ; i++) {
       var li = document.createElement("div");
       li.classList.add('cage-list-item');
       this.scoreList.appendChild(li);
-
+    }
+  };
+  Game.prototype.updateLeos = function(){
+    while(this.missDiv.firstChild){
+      this.missDiv.removeChild(this.missDiv.firstChild);
     }
 
-
+    for (var i = 0; i < this.badClickCounter ; i++) {
+      var li = document.createElement("div");
+      li.classList.add('leo-list-item');
+      this.missDiv.appendChild(li);
+    }
   };
+
   Game.prototype.removeWords = function(){
     var elem = document.getElementById("startButton");
     if (elem !== null){
@@ -138,7 +153,9 @@
     this.startIndex = setInterval(this.iterateGame.bind(this), 2000);
   };
   Game.prototype.showFinalBoard = function(won){
-    this.playDiv.removeEventListener('click', this.clicked.bind(this));
+    var that = this;
+
+    this.playDiv.removeEventListener('click', this.playDivListener);
     clearInterval(this.startIndex);
 
 
@@ -148,13 +165,13 @@
       this.playDiv.innerHTML = "GAME OVER";
       var newP = document.createElement('p');
       newP.id = "endData";
-      newP.className = "last-words"
+      newP.className = "last-words";
       newP.innerHTML = "\n \t  Your Final Score Is: " + this.score;
       var elem = document.getElementById('finalData');
 
       var newP2 = document.createElement('p');
       newP2.id = "endData";
-      newP2.className="last-words"
+      newP2.className="last-words";
       newP2.innerHTML = "\t Your Cage count is: " + this.cageCount ;
       // var elem = document.getElementById('finalData');
 
@@ -172,7 +189,7 @@
       newButton.addEventListener('click', kick);
       var newP3 = document.createElement('p');
       newP3.id = "pun";
-      newP3.className='last-words'
+      newP3.className='last-words';
       newP3.innerHTML = "Enjoy some Cajun!";
 
 
@@ -184,7 +201,7 @@
 
   };
   var kick = function(){
-    var game = new Game();
+    var game = new Game(-1);
     game.startGame();
   };
   var newDiv = document.createElement("button");
