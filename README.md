@@ -1,6 +1,8 @@
 # CagingCage
 Game so you can cage the Cage!
 
+## [live link] (http://agee6.github.io/CagingCage/)
+
 This game utilizes only Javascript, html, and css. All DOM manipulation utilizes just javascript. No jQuery or other libraries were used.
 
 
