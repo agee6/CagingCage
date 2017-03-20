@@ -7,26 +7,22 @@
     <link rel="icon" href="NicCageIcon.png">
   </head>
   <body>
-    <h1 class="title">Catch the Cage?!?</h1>
-    <p class="instructions">In order to cage the Cage you must click the cage!</p>
-    <div class="scoreArea">
-      <div class="scoreLabel">Cage Count:</div>
-
-      <div class="cage-list" id="cage-list">
+    <div className="page-wrap" id="page-wrap">
+      <h1 class="title">Catch the Cage?!?</h1>
+      <p class="instructions">In order to cage the Cage you must click the cage!</p>
+      <div class="scoreArea">
+        <div class="scoreLabel">Cage Count:</div>
+        <div class="cage-list" id="cage-list">
+        </div>
+      </div>
+      <div class="playArea" id="main">
+        <div class="ForCage" id="finalData"></div>
+      </div>
+      <div class="missArea">
+        <div class="missLabel">Miss Count:</div>
+        <div class="leo-list" id="leo-list" />
       </div>
     </div>
-    <div class="playArea" id="main">
-      <div class="ForCage" id="finalData"></div>
-
-    </div>
-
-    <div class="missArea">
-      <div class="missLabel">Miss Count:</div>
-      <div class="leo-list" id="leo-list" />
-    </div>
     <script src='game.js'></script>
-
-
-
   </body>
 </html>
