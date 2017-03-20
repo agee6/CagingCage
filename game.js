@@ -8,7 +8,6 @@
     this.clickCounter = 0 ;
     if(num === undefined){
       this.badClickCounter = 0;
-
     }else {
       this.badClickCounter = num;
     }
@@ -25,11 +24,8 @@
     this.resetPlayDiv();
     this.playDiv.addEventListener("click", this.playDivListener);
     this.showWords();
-
-
     // this.wordsIndex = setInterval(this.removeWords.bind(this), 1000);
   };
-
 
   Game.prototype.showWords = function () {
 
@@ -46,7 +42,6 @@
     }
     if(this.cageIndex !== undefined){
       clearInterval(this.cageIndex);
-
     }
     if(this.gameOver){
       this.showFinalBoard(false);
@@ -57,7 +52,6 @@
       this.cageIndex = setInterval(this.addCage.bind(this, this.currentSize),
               this.currentTime);
     }
-
   };
   Game.prototype.addCage = function(size){
 
@@ -89,10 +83,10 @@
   Game.prototype.removeCage = function(){
     this.cageDiv.remove();
     clearInterval(this.rCageIndex);
+    
   };
   Game.prototype.resetPlayDiv = function(){
-
-    this.playDiv.style.backgroundImage = 'url(NationalTreasureFilmSet.jpg)';
+    this.playDiv.style.backgroundImage = 'url(nationalTreasure.jpg)';
     this.playDiv.innerHTML = "";
   };
 
@@ -110,7 +104,8 @@
     this.badClickCounter -=1;
     this.score += 25;
     this.cageCount += 1;
-    this.playDiv.style.backgroundImage = 'url(caged.jpg)';
+    event.currentTarget.style.backgroundImage = 'url(caged.jpg)';
+    // this.playDiv.style.backgroundImage = 'url(caged.jpg)';
     // this.playDiv.style.zIndex = "1";
     this.playDiv.innerHTML = "Caged!";
 
@@ -145,9 +140,7 @@
     var elem = document.getElementById("startButton");
     if (elem !== null){
       elem.remove();
-
     }
-
     //clearInterval(this.wordsIndex);
     this.iterateGame();
     this.startIndex = setInterval(this.iterateGame.bind(this), 2000);
@@ -157,47 +150,35 @@
 
     this.playDiv.removeEventListener('click', this.playDivListener);
     clearInterval(this.startIndex);
+    this.playDiv.style.backgroundImage = 'none';
+    this.playDiv.style.backgroundColor = "white";
+    this.playDiv.style.backgroundImage = 'url(NicCage.jpg)';
+    this.playDiv.innerHTML = "GAME OVER";
+    var newP = document.createElement('p');
+    newP.id = "endData";
+    newP.className = "last-words";
+    newP.innerHTML = "\n \t  Your Final Score Is: " + this.score;
+    var elem = document.getElementById('finalData');
 
-
-      this.playDiv.style.backgroundImage = 'none';
-      this.playDiv.style.backgroundColor = "white";
-      this.playDiv.style.backgroundImage = 'url(NicCage.jpg)';
-      this.playDiv.innerHTML = "GAME OVER";
-      var newP = document.createElement('p');
-      newP.id = "endData";
-      newP.className = "last-words";
-      newP.innerHTML = "\n \t  Your Final Score Is: " + this.score;
-      var elem = document.getElementById('finalData');
-
-      var newP2 = document.createElement('p');
-      newP2.id = "endData";
-      newP2.className="last-words";
-      newP2.innerHTML = "\t Your Cage count is: " + this.cageCount ;
-      // var elem = document.getElementById('finalData');
-
-
-      this.playDiv.insertBefore(newP, elem);
-      this.playDiv.insertBefore(newP2, elem);
-
-
-      var newButton = document.createElement("button");
-      //var newContent = document.createTextNode("Hi there and greetings!");
-
-      //var newContent = document.createTextNode("Hi there and greetings!");
-      newButton.id="restartButton";
-      newButton.innerHTML="Start New Game!";
-      newButton.addEventListener('click', kick);
-      var newP3 = document.createElement('p');
-      newP3.id = "pun";
-      newP3.className='last-words';
-      newP3.innerHTML = "Enjoy some Cajun!";
-
-
-      // add the newly created element and its content into the DOM
-      var currentDiv = document.getElementById("main");
-      // document.body.insertBefore(newButton, currentDiv);
-      this.playDiv.insertBefore(newButton, elem);
-      this.playDiv.insertBefore(newP3, elem);
+    var newP2 = document.createElement('p');
+    newP2.id = "endData";
+    newP2.className="last-words";
+    newP2.innerHTML = "\t Your Cage count is: " + this.cageCount ;
+    this.playDiv.insertBefore(newP, elem);
+    this.playDiv.insertBefore(newP2, elem);
+    var newButton = document.createElement("button");
+    newButton.id="restartButton";
+    newButton.innerHTML="Start New Game!";
+    newButton.addEventListener('click', kick);
+    var newP3 = document.createElement('p');
+    newP3.id = "pun";
+    newP3.className='last-words';
+    newP3.innerHTML = "Enjoy some Cajun!";
+    // add the newly created element and its content into the DOM
+    var currentDiv = document.getElementById("main");
+    // document.body.insertBefore(newButton, currentDiv);
+    this.playDiv.insertBefore(newButton, elem);
+    this.playDiv.insertBefore(newP3, elem);
 
   };
   var kick = function(){
@@ -209,11 +190,10 @@
   newDiv.id="startButton";
   newDiv.innerHTML="Start Game!";
   newDiv.addEventListener('click', kick);
-
-
   // add the newly created element and its content into the DOM
   var currentDiv = document.getElementById("main");
-  document.body.insertBefore(newDiv, currentDiv);
+  var wrap = document.getElementById('page-wrap');
+  currentDiv.appendChild(newDiv);
 
 
 })();
