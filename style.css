@@ -186,5 +186,5 @@
  .last-words{
    font-style:italic;
    color: black;
-   background-color: rgba(100, 100, 150, 0.5);
+   /*background-color: rgba(100, 100, 150, 0.5);*/
  }
